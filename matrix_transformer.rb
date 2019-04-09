@@ -20,7 +20,4 @@ class MatrixTransformer
   end
 end
 
-ARGV.each do |args|
-  matrix = args || [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-  MatrixTransformer.new(matrix).turn_left_in_90_degrees
-end
+MatrixTransformer.new.turn_left_in_90_degrees
