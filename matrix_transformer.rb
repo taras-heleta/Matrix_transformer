@@ -6,7 +6,9 @@ class MatrixTransformer
   end
 
   def turn_left_in_90_degrees
-    print_matrix(rows_into_columns.reverse)
+    turned_matrix = rows_into_columns.reverse
+    print_matrix(turned_matrix)
+    turned_matrix
   end
 
   private
@@ -19,5 +21,3 @@ class MatrixTransformer
     puts matrix.map(&:inspect)
   end
 end
-
-MatrixTransformer.new.turn_left_in_90_degrees
