@@ -2,7 +2,6 @@ require_relative '../matrix_transformer'
 require_relative 'random_matrix_generator'
 
 RSpec.describe '#matrix transformer' do
-
   let(:square_matrix) do
     RandomMatrixGenerator.square_matrix
   end
@@ -12,18 +11,15 @@ RSpec.describe '#matrix transformer' do
   end
 
   let(:one_element_matrix) do
-    [[1]]
+    RandomMatrixGenerator.rectangular_matrix
   end
 
-  let(:wrong_size_matrix) do
-    [
-        [1, 2],
-        [1, 2, 3]
-    ]
+  let(:not_rectangular_matrix) do
+    RandomMatrixGenerator.not_rectangular_matrix
   end
 
   let(:one_dimensional_matrix) do
-    [0]
+    RandomMatrixGenerator.one_dimensional_matrix
   end
 
   let(:not_a_matrix) do
@@ -48,9 +44,9 @@ RSpec.describe '#matrix transformer' do
     expect(actual_matrix).to eql(expected_matrix)
   end
 
-  it 'rotate wrong size matrix' do
+  it 'rotate not rectangular matrix size matrix' do
     expect do
-      MatrixTransformer.new(wrong_size_matrix).turn_left_in_90_degrees
+      MatrixTransformer.new(not_rectangular_matrix).turn_left_in_90_degrees
     end.to raise_error('element size differs (3 should be 2)')
   end
 
